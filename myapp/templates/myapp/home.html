@@ -1,0 +1,133 @@
+{% extends 'myapp/base.html' %}
+{% block metatags %} 
+<meta name="description" content="Generate free JSON data for your testing and development needs with our easy-to-use online tool. Customizable, realistic, and reliable JSON data at your fingertips. No sign-up or downloads required. Try it now!">
+<meta name="keywords" content="Fake Json, fake json website for testing, fake json website for blogging, fake json, dummy jsos, dymmy fake json website, random json generator">
+<meta name="author" content="Pankaj Kushwaha">
+{% endblock metatags %}
+{% block content %}
+<section class="hero">
+  <h2>Welcome to Fake JSON website!</h2>
+</section>
+<br><br>
+<section class="feature">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Easy to Use</h3>
+        <p>Easy to use, even for developers who are new to working with JSON data. This requires a simple and user-friendly interface, with clear documentation and tutorials.</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Fast and Reliable</h3>
+        <p>The website generate Fake JSON data quickly. Fake Json included Posts, User, Comments. A blogging website is a most common project of every developer.</p>
+      </div>
+      <div class="col-md-4">
+          <h3>Secure and Private</h3>
+          <p>The website is secure and private. It validate the data before serving.
+            It also check the post, put, patch and delete requests before sending the response to the user.
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br><br>
+<div class="feature">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-md-8 offset-md-2">
+        <h3>Fake Json REST API testing &nbsp;&nbsp; <a href="{% url 'docs' %}" style="color:darkblue">See Docs</a></h3>
+        <p>This website is a free Fake REST API that you can use whenever you need some fake data.</p>
+        <br>
+        <h3>Fetch data</h3>
+        <pre style="border-radius: 10px;"><code>
+fetch('https://127.0.0.1:8000/api/posts/1')
+.then(res => res.json())
+.then(data => console.log(data));
+
+</code></pre>
+Output
+<br><br>
+    <pre style="border-radius: 10px;"><code>{
+  "postId": 1,
+  "title": "they are either to do repels provide blacked out option to blame",
+  "description": "because it also receives....",
+  "user": { "userId": 1, "username": "admin" },
+  "comments": [
+      {
+        "commentId": 1,
+        "postId": 1,
+        "comment": "for those who praise them,...",
+        "name": "that labor from and how labors",
+        "email": "Eliseo@gardner.biz"
+      },
+      {
+        "commentId": 2,
+        "postId": 1,
+        "comment": "for he is born, there is nothing...",
+        "name": "indeed, by which he wants to reject and the like of them",
+        "email": "Jayne_Kuhic@sydney.com"
+      },
+      . // 5 comments
+}</code></pre>
+    <br>
+
+
+    <br><br><hr> <br>
+    <h3>Resources</h3>
+    <p>Following resources are available which you can access via our REST API.</p>
+    <div class="row" style="align-items: start">
+      <div class="col-md-2 col-4">
+        <a href="{% url 'posts' %}" target="_blank">/api/posts</a> <br> <br>
+        <a href="{% url 'comments' %}" target="_blank">/api/comments</a> <br> <br>
+        <a href="{% url 'comments' %}" target="_blank">/api/users</a> <br> <br>
+      </div>
+      <div class="col-md-3 col-8">
+        100 Posts <br> <br>
+        500 Comments <br><br>
+        10 Users <br><br>
+      </div>
+    </div>
+    <br><hr><br>
+    <h3>Routes</h3>
+    <p>Following resources are available which you can access via our REST API.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-2 col-md-1" >
+          GET <br> <br>
+          GET <br> <br>
+          GET <br> <br>
+          GET <br> <br>
+          POST <br> <br>
+          PUT <br> <br>
+          PATCH <br> <br>
+          DELETE <br> <br>
+        </div>
+        <div class="col-5 col-md-2" >
+          <a href="{% url 'posts' %}" target="_blank">/api/posts</a> <br> <br>
+          <a href="{% url 'comments' %}" target="_blank">/api/comments</a> <br> <br>
+          <a href="{% url 'comments' %}" target="_blank">/api/users</a> <br> <br>
+          <a href="{% url 'posts' %}" target="_blank">/api/posts/1</a> <br> <br>
+          <a href="{% url 'posts' %}" target="_blank">/api/posts</a> <br> <br>
+          <a href="{% url 'posts' %}" target="_blank">/api/posts/1</a> <br> <br>
+          <a href="{% url 'posts' %}" target="_blank">/api/posts/1</a> <br> <br>
+          <a href="{% url 'posts' %}" target="_blank">/api/posts/1</a> <br> <br>
+        </div>
+        <div class="col-5 col-md-4">
+          Get all posts <br> <br>
+          Get all comments <br><br>
+          Get all users <br><br>
+          Get a single post <br> <br>
+          Add a post <br> <br>
+          Update all field at once<br> <br>
+          Update some fields<br> <br>
+          Delete a post <br> <br>
+        </div>
+      </div>
+    </div>
+        <br><br>
+        <a href="{% url 'docs' %}" style="text-decoration: none; font-size: 18px;" >See Docs</a>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

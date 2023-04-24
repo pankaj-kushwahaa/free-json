@@ -1,0 +1,42 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'myapp/css/tomorrow-night-bright.min.css' %}">
+  <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+  <meta name="description" content="Generate free JSON data for your testing and development needs with our easy-to-use online tool. Customizable, realistic, and reliable JSON data at your fingertips. No sign-up or downloads required. Try it now!">
+  <meta name="keywords" content="Fake Json, fake json website for testing, fake json website for blogging, fake json, dummy jsos, dymmy fake json website, random json generator">
+  <meta name="author" content="Pankaj Kushwaha">
+  <title> Fake JSON for testing Error Page </title>
+
+</head>
+<body>
+  <header class="header" style="display:flex"> 
+      <h3><a href="{% url 'home' %}" style="text-decoration: none;color:white;"> Fake JSON Website </a> &nbsp; <a href="{% url 'docs' %}" style="color:white">See Docs</a></h3>
+  </header>
+  <br><br><br>
+  <div class="feature">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-3">
+          <h3>Page Not Found !!</h3>
+          <p>Oooooops! Looks like nothing was found at this location. Maybe try one of the links below.</p>
+            <a href="{% url 'home' %}" style="text-decoration: none;"> Fake JSON Website </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+
+
+  <footer class="footer">
+    <p>&copy; 2023 Fake JSON Website. All rights reserved.</p>
+  </footer>
+  <script src="{% static 'myapp/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,702 @@
+{% extends 'myapp/base.html' %}
+{% block metatags %} 
+<meta name="description" content="Documentation of Fake Json! Learn how to use our free JSON with our comprehensive documentation. Find tutorials, examples, and API references to help you get the most out of our service. Explore our developer-friendly documentation and start generating realistic JSON data for your projects today.">
+<meta name="keywords" content="Fake Json Docs, random json documentation, fake json website for testing documentation, fake json blogging documentation,  documentation fake json, dummy json documentation, dymmy fake json website, random json generator">
+<meta name="author" content="Pankaj Kushwaha">
+{% endblock metatags %}
+{% block title %} Fake Json Website Documentation {% endblock title %}
+{% block content %}
+<style>
+
+  /* Documentation Section Styles */
+  .documentation {
+    padding: 40px;
+  }
+
+  .documentation h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+
+  .documentation p {
+    font-size: 18px;
+    color: #6c757d;
+  }
+
+  .documentation .feature {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .documentation .feature .feature-item {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+
+  .documentation .feature .feature-item img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .documentation .feature .feature-item h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #007bff;
+  }
+
+  .documentation .feature .feature-item p {
+    font-size: 18px;
+    color: #6c757d;
+  }
+
+  /* Footer Styles */
+  .footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 16px;
+  }
+  pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    border-radius: 10px;
+  }
+  label{
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 34px;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+</style>
+<section class="documentation">
+  <div class="container">
+    <h2>Documentation</h2>
+    <p>Learn how to use our free JSON with our comprehensive documentation. Find tutorials, examples, and API references to help you get the most out of our service. Explore our developer-friendly documentation and start generating realistic JSON data for your projects today.</p>
+    <br>
+    <div class="feature">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature-item">
+            <h3>Easy to Use</h3>
+            <p>This website provide clear and concise instructions on how to generate JSON data, and offer a range of customization options to suit different use cases.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-item">
+            <h3>Customizable</h3>
+            <p>Some of the basic customization options that can be offered by a free JSON website include the ability to specify the posts with all meta data.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3>Fast and Reliable</h3>
+          <p>The website generate Fake JSON data quickly. Fake Json included Posts, User, Comments. A blogging website is a most common project of every developer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <br><br>
+  <div class="feature">
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-2 col-md-8 offset-md-2">
+          
+          <h3>Fake Json Rest API testing</h3>
+          <p>This website is a free Fake REST API that you can use whenever you need some fake data.</p>
+          <br>
+          <h3>Fetch data</h3>
+          <pre style="border-radius: 10px;" id="javascript" ><code>
+fetch('https://127.0.0.1:8000/api/posts/1')
+.then(res => res.json())
+.then(data => console.log(data));
+
+</code></pre>
+  Output
+  <br><br>
+      <pre style="border-radius: 10px;"><code>{
+  "postId": 1,
+  "title": "they are either to do repels provide blacked out option to blame",
+  "description": "because it also receives....",
+  "user": { "userId": 1, "username": "admin" },
+  "comments": [
+      {
+        "commentId": 1,
+        "postId": 1,
+        "comment": "for those who praise them,...",
+        "name": "that labor from and how labors",
+        "email": "Eliseo@gardner.biz"
+      },
+      {
+        "commentId": 2,
+        "postId": 1,
+        "comment": "for he is born, there is nothing...",
+        "name": "indeed, by which he wants to reject and the like of them",
+        "email": "Jayne_Kuhic@sydney.com"
+      },
+      . // 5 comments
+}</code></pre>
+      <br>
+
+
+          <br><br><hr> <br>
+          <h3>Resources</h3>
+          <p>Following resources are available which you can access via our REST API.</p>
+          <div class="row" style="align-items: start">
+            <div class="col-md-2 col-4">
+              <a href="{% url 'posts' %}">/api/posts</a> <br> <br>
+              <a href="{% url 'comments' %}">/api/comments</a> <br> <br>
+              <a href="{% url 'users' %}">/api/users</a> <br> <br>
+            </div>
+            <div class="col-md-3 col-8">
+              100 Posts <br> <br>
+              500 Comments <br><br>
+              10 Users <br><br>
+            </div>
+          </div>
+          <br><hr><br>
+          <h3>Routes</h3>
+          <p>Following resources are available which you can access via our REST API.</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-2 col-md-1" >
+                GET <br> <br>
+                GET <br> <br>
+                GET <br> <br>
+                GET <br> <br>
+                POST <br> <br>
+                PUT <br> <br>
+                PATCH <br> <br>
+                DELETE <br> <br>
+              </div>
+              <div class="col-5 col-md-2" >
+                <a href="{% url 'posts' %}">/api/posts</a> <br> <br>
+                <a href="{% url 'comments' %}">/api/comments</a> <br> <br>
+                <a href="{% url 'users' %}">/api/users</a> <br> <br>
+                <a href="{% url 'post-id' 1 %}">/api/posts/1</a> <br> <br>
+                <a href="{% url 'posts' %}">/api/posts</a> <br> <br>
+                <a href="{% url 'post-id' 1 %}">/api/posts/1</a> <br> <br>
+                <a href="{% url 'post-id' 1 %}">/api/posts/1</a> <br> <br>
+                <a href="{% url 'post-id' 1 %}">/api/posts/1</a> <br> <br>
+              </div>
+              <div class="col-5 col-md-4">
+                Get all posts <br> <br>
+                Get all comments <br><br>
+                Get all users <br><br>
+                Get a single post <br> <br>
+                Add a post <br> <br>
+                Update all field at once<br> <br>
+                Update some fields<br> <br>
+                Delete a post <br> <br>
+              </div>
+            </div>
+          </div>
+          
+          <br><hr><br><br>
+          {{url}}
+          <h3>All Links</h3>  
+          <div class="row">
+            <div class="col-md-4">
+              <a href="#postsrelated" style="text-decoration: none;color: black;"><h4>Post related</h4></a>
+              <a href="#getallpost">Get all post</a> <br> <br>
+              <a href="#getsinglepost">Get a single post</a> <br> <br>
+              <a href="#addpost">Add a post</a> <br> <br>
+              <a href="#updatepostput">Update a post all fields</a> <br> <br>
+              <a href="#updatepostpatch">Update specific fields</a> <br> <br>
+              <a href="#deletepost">Delete a post</a> <br> <br>
+            </div>
+            <div class="col-md-4">
+              <a href="#commentsrelated" style="text-decoration: none;color: black;"><h4>Comments related</h4></a>
+              <a href="#getallcomments">Get all comments</a> <br> <br>
+              <a href="#getsinglecomment">Get single comment</a> <br> <br>
+              <a href="#addcomment">Add comment</a> <br> <br>
+              <a href="#updatecommentput">Update comment all field</a> <br> <br>
+              <a href="#updatecommentpatch">Update specific fields</a> <br> <br>
+              <a href="#deletecomment">Delete a comment</a> <br> <br>
+            </div>
+            <div class="col-md-4">
+              <a href="#usersrelated" style="text-decoration: none; color: black;"><h4>Users related</h4></a>
+              <a href="#getallusers">Get all users</a> <br> <br>
+              <a href="#getsingleuser">Get single user</a> <br> <br>
+            </div>
+          </div>
+          <br> <hr><br>
+          <h3 id="postsrelated">Post related</h3>
+          <h4 id="getallpost">Get all post</h4>
+          <pre style="border-radius: 10px;"><code>
+fetch('{{url}}api/posts')
+.then(res => res.json())
+.then(data => console.log(data));
+          
+</code></pre>Output
+        <pre style="border-radius: 10px;"><code>[
+  {
+    "postId": 1,
+    "title": "they are either to do repels provide blacked out option to blame",
+    "description": "because it also receives....",
+    "user": { "userId": 1, "username": "admin" },
+    "comments": [
+        {
+          "commentId": 1,
+          "postId": 1,
+          "comment": "for those who praise them,...",
+          "name": "that labor from and how labors",
+          "email": "Eliseo@gardner.biz"
+        },
+        {
+          "commentId": 2,
+          "postId": 1,
+          "comment": "for he is born, there is nothing...",
+          "name": "indeed, by which he wants to reject and the like of them",
+          "email": "Jayne_Kuhic@sydney.com"
+        },
+        . // 5 comments
+      ]
+  },
+  {...},
+    .
+    .
+    . 
+  {...} // 100 posts         
+]</code></pre> <hr> <br>
+
+        
+         <h4 id="getsinglepost">Get single post</h4>
+         <pre style="border-radius: 10px;"><code>
+fetch('{{url}}api/posts/2')
+.then(res => res.json())
+.then(data => console.log(data));
+                  
+</code></pre>
+          Output
+          <pre style="border-radius: 10px;"><code>{
+  "postId": 2,
+  "title": "who is to be",
+  "description": "it is the time of life...",
+  "user": { "userId": 1, "username": "admin" },
+  "comments": [
+      {
+          "commentId": 6,
+          "postId": 2,
+          "comment": "but those who are present will...",
+          "name": "and he flees from choosing those who are indeed gentle, but who are nothing",
+          "email": "Presley.Mueller@myrl.com"
+      },
+      {
+          "commentId": 7,
+          "postId": 2,
+          "comment": "but greater pains and similar labor...",
+          "name": "it repulses the consequences of present or less unpleasant pleasures",
+          "email": "Dallas@ole.me"
+      },
+      .
+      . // 5 Comments      
+  ]
+}</code></pre> <hr> <br>
+
+            <h4 id="addpost">Post request or Add post</h4>
+            <pre style="border-radius: 10px;"><code>
+let init = {
+  method : "post",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+  body : JSON.stringify({
+    title : "What is CSS",
+    description : "CSS stands for Cascading StyleSheet. CSS is used to give the style to the web pages.",
+    userId: 1
+  })
+}
+
+fetch( `{{url}}api/posts`, init)
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+                    
+</code></pre>
+              Output
+              <pre style="border-radius: 10px;"><code>{
+  "postId":101,
+  "title":"What is CSS",
+  "description":"CSS stands for Cascading StyleSheet. CSS is used to give the style to the web pages.",
+  "userId":1,
+  "message":"Data Created.!!"
+}</code></pre> <hr> <br>
+
+            <h4 id="updatepostput">Update a post all field</h4>
+            <pre style="border-radius: 10px;"><code>
+fetch('{{url}}api/posts/1', {
+  method : "put",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+  body : JSON.stringify({
+    title : "What is CSS",
+    description : "CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.",
+    userId: 1
+  })
+})
+.then( (response) => {
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+                                
+</code></pre>
+            Output
+            <pre style="border-radius: 10px;"><code>{
+  "postId":1,
+  "title":"What is CSS",
+  "description":"CSS is the language we use to style...",
+  "userId":1,
+  "message":"Data Updated Successfully.!!"
+}</code></pre> <hr> <br>
+
+            <h4 id="updatepostpatch">Update a specific field </h4>
+            <pre style="border-radius: 10px;"><code>
+fetch('{{url}}api/posts/1', {
+  method : "patch",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+  body : JSON.stringify({
+    description : "CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.",
+    userId: 1
+  })
+})
+.then( (response) => {
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+                        
+</code></pre>
+              Output
+              <pre style="border-radius: 10px;"><code>{
+  "postId": 1,
+  "description": "CSS is the language we use to style an....",
+  "userId": 1,
+  "message": "Data Updated Successfully.!!"
+}</code></pre>  <hr> <br>
+
+            <h4 id="deletepost">Delete a post</h4>
+            <pre style="border-radius: 10px;"><code>
+fetch('https://127.0.0.1:8000/api/posts/1', {
+  method : "delete"
+})
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+                    
+</code></pre>
+              Output
+              <pre style="border-radius: 10px;"><code>{
+  "message": "Data Deleted.!!",
+  "postId": 1
+}</code></pre> <hr> <br>
+
+<h3 id="commentsrelated">Comments related </h3>
+<h4 id="getallcomments">Get all comments</h4>
+<pre style="border-radius: 10px;"><code>
+fetch('{{url}}api/comments/1')
+.then(res => res.json())
+.then(data => console.log(data));
+
+</code></pre>Output
+<pre style="border-radius: 10px;"><code>[
+  {
+    "commentId":1,
+    "postId":1,
+    "comment":"for those who praise them...",
+    "email":"Eliseo@gardner.biz"
+  }, 
+  {
+    "commentId":2,
+    "postId":1,
+    "comment":"for he is born, there is...",
+    "name":"indeed, by which he wants to reject and the like of them",
+    "email":"Jayne_Kuhic@sydney.com"
+  },
+  .
+  .
+  {...} // 500th
+]</code></pre> <hr> <br>
+
+<h4 id="getsinglecomment">Get single comment</h4>
+<pre style="border-radius: 10px;"><code>
+fetch('{{url}}api/comments/1')
+.then(res => res.json())
+.then(data => console.log(data));
+
+</code></pre>
+Output
+<pre style="border-radius: 10px;"><code>{
+  "commentId":1,
+  "postId":1,
+  "comment":"for those who praise them,...",
+  "email":"Eliseo@gardner.biz"
+}</code></pre>  <hr> <br>
+
+  <h4 id="addcomment">Post request or Add Comment</h4>
+  <pre style="border-radius: 10px;"><code>
+fetch( `{{url}}api/comments`, {
+  method : "post",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+  body : JSON.stringify({
+    name : "Pankaj Kumar",
+    comment : "Very nice post",
+    postId: 1,
+    email : 'Pankaj@gmail.com'
+  })
+})
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+          
+</code></pre>
+    Output
+    <pre style="border-radius: 10px;"><code>{
+  "commentId":101,
+  "name":"Pankaj Kumar",
+  "comment":"Very nice post",
+  "postId":1,
+  "email":"Pankaj@gmail.com",
+  "message":"Data Created.!!"
+}</code></pre>  <hr> <br>
+
+  <h4 id="updatecommentput">Update a comment all field</h4>
+  <pre style="border-radius: 10px;"><code>
+fetch( `{{url}}api/comments/4`, {
+  method : "put",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+  body : JSON.stringify({
+    name : "Pankaj Kumar",
+    comment : "Very nice post",
+    postId: 1,
+    email : 'Pankaj@gmail.com'
+  })
+})
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+                      
+  </code></pre>
+  Output
+  <pre style="border-radius: 10px;"><code>{
+  "commentId":4,
+  "name":"Pankaj Kumar",
+  "comment":"Very nice post",
+  "postId":1,
+  "email":"Pankaj@gmail.com",
+  "message":"Data Updated Successfully.!!"
+}</code></pre> <hr> <br>
+  <h4 id="updatecommentpatch">Update a specific field</h4>
+  <pre style="border-radius: 10px;"><code>
+fetch( `{{url}}api/comments/4`, {
+  method : "patch",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+  body : JSON.stringify({
+    comment : "Very nice post",
+    postId: 1,
+  })
+})
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+          
+</code></pre>
+    Output
+    <pre style="border-radius: 10px;"><code>{
+  "commentId":4,
+  "comment":"Very nice post",
+  "postId":1,
+  "message":"Data Updated Successfully.!!"
+}</code></pre> <hr> <br>
+  <h4 id="deletecomment">Delete a comment</h4>
+  <pre style="border-radius: 10px;"><code>
+fetch( `{{url}}api/comments/4`, {
+  method : "delete"
+})
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+          
+</code></pre>
+    Output
+    <pre style="border-radius: 10px;"><code>{
+  "message":"Data Deleted.!!",
+  "commentId":4
+}</code></pre>  <hr> <br>
+
+
+          <h3 id="usersrelated">Users related </h3>
+          <h4 id="getallusers">Get all users</h4>
+          <pre style="border-radius: 10px;"><code>
+fetch( `{{url}}api/users`)
+.then( (response) => {     
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    console.log(message);
+    throw new Error(message);
+  }
+    return response.json();
+})
+.then(data => console.log(data));
+
+</code></pre>Output
+<pre style="border-radius: 10px;"><code>[
+  {
+    "userId": 1, 
+    "username": "admin", 
+    "posts": [
+                {
+                  "postId": 1, 
+                  "title": "they are either to do repels provide blacked out option to blame",
+                  "description": "because it also receives\nit takes..", 
+                  "userId": 1
+                }, 
+                {
+                    "postId": 2, 
+                    "title": "who is to be", 
+                    "description": "it is the time of life\nto follow them,..", 
+                    "userId": 1
+                },
+                  .
+                  . // 10 posts by admin user
+              ]
+  },
+  {
+    "userId": 2, 
+    "username": "user2", 
+    "posts": [
+                {
+                  "postId": 11, 
+                  "title": "they are either to do repels provide blacked out option to blame",
+                  "description": "because it also receives\nit takes the con...", 
+                  "userId": 1
+                }, 
+                {
+                  "postId": 12, 
+                  "title": "who is to be", 
+                  "description": "it is the time of life\nto follow them, ...", 
+                  "userId": 1
+                }, 
+                  .
+                  . // 10 posts by user2
+              ]
+  },
+  .
+  . // 10 users
+]</code></pre><hr> <br>
+
+          <h4 id="getsingleuser">Get single user</h4>
+          <pre style="border-radius: 10px;"><code>
+fetch('https://127.0.0.1:8000/api/posts/1')
+.then(res => res.json())
+.then(data => console.log(data));
+
+</code></pre>
+Output
+<pre style="border-radius: 10px;"><code>{
+"user": [ { "id": 2, "username": "user1" } ], 
+"post": [
+          {
+            "postId": 11, "title": "and indeed those who praise", "description": "the choice of rejecting the dark...", "userId": 2
+          }, 
+          {
+            "postId": 12, "title": "in some times he hates the pain", "description": "therefore it is either great...", "userId": 2
+          },
+          .
+          . // 10 posts by user1 and id=2
+        ]
+}</code></pre> <br> <hr> <br>
+
+
+         
+
+
+
+
+
+
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  function changeTab(e){
+    console.log(e.target);
+    let id = e.target.getAttribute('for');
+    let el = document.querySelector(`#${id}`);
+    el.style.display = 'block';
+    
+  }
+</script>
+ {% endblock %}
