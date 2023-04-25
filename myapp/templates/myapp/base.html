@@ -10,8 +10,8 @@
   <title>{% block title %} Fake JSON for testing {% endblock title %}</title>
 </head>
 <body>
-  <header class="header" style="display:flex"> 
-      <h3><a href="{% url 'home' %}" style="text-decoration: none;color:white;"> Fake JSON Website </a> &nbsp; <a href="{% url 'docs' %}" style="color:white">See Docs</a></h3>
+  <header class="header"> 
+      <h3 ><a href="{% url 'home' %}" style="text-decoration: none;color:white;"> Fake JSON </a> &nbsp; <a href="{% url 'docs' %}" style="color:white">See Docs</a></h3>
   </header>
     {% block content %} {% endblock content %}
   <footer class="footer">
