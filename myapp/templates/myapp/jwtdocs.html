@@ -1,67 +1,65 @@
 {% extends 'myapp/base.html' %}
 {% block metatags %}
-<meta name="description" content="Documentation of Fake Json! Learn how to use our free JSON with our comprehensive documentation. Find tutorials, examples, and API references to help you get the most out of our service. Explore our developer-friendly documentation and start generating realistic JSON data for your projects today.">
+<meta name="description" content="Documentation of Fake Json! with JWT Authentication. Learn how to use our free JSON with our comprehensive documentation. Find tutorials, examples, and API references to help you get the most out of our service. Explore our developer-friendly documentation and start generating realistic JSON data for your projects today.">
 <meta name="keywords" content="Fake Json Docs, random json documentation, fake json website for testing documentation, fake json blogging documentation,  documentation fake json, dummy json documentation, dymmy fake json website, random json generator">
 <meta name="author" content="Pankaj Kushwaha">
 <!-- Open Graph Protocol start -->
-<meta property="og:title" content="Free Json  Rest API for tesing | Documentation">
+<meta property="og:title" content="Free Json Rest API JWT authentication for tesing | Documentation">
 <meta property="og:site_name" content="Free Json Rest API for testing">
-<meta property="og:url" content="https://pankajk.pythonanywhere.com/docs/">
+<meta property="og:url" content="https://pankajk.pythonanywhere.com/jwt-docs/">
 <meta property="og:description" content="Documentation for Free Json website. It is free an easy to use, fast and reliable which any frontend developer can use it.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://pankajk.pythonanywhere.com/static/myapp/image/website-image.jpg">
 <!-- Open Graph Protocol end -->
-<link rel="canonical" href="https://pankajk.pythonanywhere.com/docs/">
+<link rel="canonical" href="https://pankajk.pythonanywhere.com/jwt-docs/">
 {% endblock metatags %}
-{% block title %} Fake Json Documentation | Rest Api for testing {% endblock title %}
+{% block title  %} Free Json Rest API - JWT Documentation {% endblock title %}
 {% block content %}
 <style>
-
-  /* Documentation Section Styles */
   .documentation {
     padding: 40px;
   }
-
+  
   .documentation h2 {
     font-size: 36px;
     font-weight: bold;
     color: #007bff;
     margin-bottom: 20px;
   }
-
+  
   .documentation p {
     font-size: 18px;
     color: #6c757d;
   }
-
+  
   .documentation .feature {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
   }
-
+  
   .documentation .feature .feature-item {
     flex: 0 0 100%;
     margin-bottom: 20px;
   }
-
+  
   .documentation .feature .feature-item img {
     max-width: 100%;
     height: auto;
   }
-
+  
   .documentation .feature .feature-item h3 {
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
     color: #007bff;
   }
-
+  
   .documentation .feature .feature-item p {
     font-size: 18px;
     color: #6c757d;
   }
- 
+  
   pre {
     overflow-x: auto;
     white-space: pre-wrap;
@@ -83,6 +81,7 @@
     border-radius: 10px;
     padding: 20px;
   }
+  
   .copy-btn{
     position: absolute;
     top: 5px;
@@ -94,68 +93,239 @@
     border-radius: 5px;
     text-shadow: #c4c4c4 0 0 2px;
   }
-
+  
   .copy-btn:hover{
     cursor: pointer;
     background-color: #ebe4e7;
   }
-
-  .list-group-item{
-    position: inherit;
-  }
-  .activate{
-    background-color: rgba(17, 67, 216, 0.774);
-    color: white;
-  }
-
 </style>
-<section class="documentation">
+
+<br>
+{% if request.user.is_authenticated %}
+<div class="row">
+  <h3 class="text-center">JSON Web Token Documentation</h3>
+  {% include 'myapp/profile-header.html' %}
+  <div class="col-md-5" spellcheck="true"> 
+    <p>JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting informations between parties as a JSON objects. </p>
+    <p>JWTs are commonly used for authentication and authorization purposes in web application. They are digitally signed and encrypted using a secret key or a public/private key pair to ensure the integrity of the token and prevent tampering.</p>
+  </div>
+</div>  
+{% else %}
   <div class="container">
-    <h2>Documentation</h2>
-    <p>Learn how to use our free Rest API with our comprehensive documentation. Find tutorials, examples, and API references to help you get the most out of our service. Lot of examples are given below. Explore our developer-friendly documentation and start generating realistic JSON data for your projects today.</p>
-    <br>
-    <div class="feature">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="feature-item">
-            <h3>Easy to Use</h3>
-            <p>Fake Json Api which include Posts, Users, Comments. A blogging website is a most common project of every developer. Copy and paste the fetch api code and use in your project.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-item">
-            <h3>Customizable</h3>
-            <p>Some of the basic customization options that can be offered by a free JSON website include posts with all related fields like comments and users..</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <h3>Fast and Reliable</h3>
-          <p>This website provide clear and concise instructions on how to generate JSON data, and offer a range of customization options to suit different use cases. </p>
-        </div>
+    <div class="row">
+      <div class="offset-md-2 col-md-8 offset-md-2">
+        <h3 class="text-center">JSON Web Token Documentation</h3>
+        <p>JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting informations between parties as a JSON objects. </p>
+        <p>JWTs are commonly used for authentication and authorization purposes in web application. They are digitally signed and encrypted using a secret key or a public/private key pair to ensure the integrity of the token and prevent tampering.</p>
       </div>
     </div>
   </div>
-</section>
-  
-  <div class="row"> {% url 'docs' as docs %}{% url 'jwt_docs' as jwt_docs %}
-    <div class="col-md-2 col-8  offset-md-5 offset-1">
-      <ul class="list-group">
-        <a href="{% url 'docs' %}" class="list-group-item list-group-item-action {% if request.path == docs  %} activate {% endif %}"> Documentation </a>
-        <a href="{% url 'jwt_docs' %}" class="list-group-item list-group-item-action {% if request.path == jwt_docs  %} activate {% endif %}"> JWT Documentation </a>
-      </ul> 
-    </div>
-  </div>
-  <br><br>
+{% endif %}
+
   <div class="feature">
     <div class="container">
       <div class="row">
         <div class="offset-md-2 col-md-8 offset-md-2">
-          <h3>Fake Json Rest API for testing</h3>
+          <br>
+          <div>JSON Web Tokens consists of three parts separated by dots (<strong>.</strong>), which are <strong>header</strong>, <strong>payload</strong>, and <strong>signature</strong>. <br> <br>
+            <strong>Header : </strong> Identifies which algorithm is used to generate the signature. <br> <br>
+            <strong>Payload : </strong> Contains a set of claims. Claims are statements about an entity. <br> <br>
+            <strong>Signature : </strong> Securely validates the token. <br> <br>
+            <strong>Access Token : </strong> eyJhbGciOiJIUzI1NiIsIn<strong style="font-size: 30px;">.</strong>eyJ0b2tlbl90eXBlIj0<strong style="font-size: 30px;">.</strong>Vh2ZQJ8RZJ0IhNOB48" <br>
+            <strong>header.payload.signature  </strong> <br>
+          </div>
+          <br>
+          <br>
+          <h3>Fake Json Rest API for testing with JWT Authentication </h3>
           <p>This website is a free Fake REST API that you can use whenever you need some fake data.</p>
           <br>
+          <h3>Authenticate yourself to get Access Token and Refresh Token</h3>
+          <h4>Curl</h4>
+          <pre><code> // Using Curl commands
+curl -i -X POST "{{url}}api/auth/token" -d "{\"username\": \"user1\", \"password\":\"12345\"}" -H "Content-Type: application/json" -H "accept: application/json; indent=4"            
+</code></pre>
+          <h4>JavaScript Fetch API </h4>
+          <pre><code>
+fetch( `{{url}}api/auth/auth/token`, {
+  method : "post",
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+    'Accept' : 'application/json; indent=4',
+  },
+  body : JSON.stringify({
+    username : 'user1',
+    password : '12345'
+  })
+})
+.then( (response) => {
+if (!response.ok) {
+  const message = `An error has occured: ${response.status}`;
+  console.log(message);
+//throw new Error(message);
+}
+  return response.json();
+})
+.then(data => console.log(data));
+
+</code></pre>
+          <h4>Python</h4>
+          <pre><code class="languag-python">
+import requests
+import json
+
+url = "{{url}}api/auth/token"
+headers = {
+  "Content-Type" : "application/json; charset:utf-8",
+  "Accept" : "application/json; indent=4"
+}
+data = json.dumps(dict(username="user1", password="12345"))
+response = requests.post(url, headers=headers, data=data)
+print(response.text)
+
+</code></pre>
+          <h4>You will get Access Token and Refresh Token </h4>
+          <li>Access Token will be valid for an hour, after one hour it will expire.</li>
+          <li>You can generate an access token with the help of Refresh Token if access token expries. </li>
+          <li>A Refresh Token will be valid for 7 days. After 1 week it will expire.</li>
+          <li>When Refresh Token expires, the user will need to perform a full authentication with username and password again.</li>
+
+          <pre><code>
+{
+  "refresh": "eyJhbGcCJ9.eyJ0baWQ0YTQiOjJ9.g_mW7M2a_",
+
+  "access": "eyJhVCJ9.eyJxNzgzNDECI6Mn0.7aHa9h_RMOy149Y"
+}
+
+</code></pre>
+<hr> <br>
+          <h4>Validity of Tokens</h4>
+          <div>
+            <strong>Access Token : 1 hour</strong>  <br>
+            <strong>Refresh Token : 7 days </strong> 
+          </div>
+          <br>
+          <h3>Generate Access Token with Refresh Token</h3>
+          <pre><code>
+fetch('{{url}}api/auth/refresh', {
+  method : 'post',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4'},
+    body : JSON.stringify({
+  refresh : '[your_refresh_token]'
+  })
+  
+})
+.then(res => res.json())
+.then(data => console.log(data));
+
+</code></pre>
+            Output
+            <pre><code>
+{
+  "refresh": "eyJhbGciOz9.eyJ0b2tlbllIjoa.n01O5LK8Z7SC",
+
+  "access": "eyJhbGciOiJ.eyJ0b2tlbl90eXBl.Z5IMEYhZe8SsI"
+}
+</code></pre>
+<hr>
+<br><br>
+          <h3>Resources</h3>
+          <h4>Authenticate</h4>
+          <div class="row">
+            <div class="col-md-3 col-5">
+              <a href="{% url 'obtain_token_pair' %}" target="_blank">/api/auth/token</a> <br> <br>
+              <a href="{% url 'refresh_token' %}" target="_blank">/api/auth/refresh</a> <br> <br>
+            </div>
+            <div class="col-md-7 col-7">
+              Obtain Token Pair <br> <br>
+              Obtain Access Token with Refresh Token <br><br>
+            </div>
+          </div>
+          <p>Following resources are available which you can access via our REST API.</p>
+          <div class="row" style="align-items: start">
+            <div class="col-md-3 col-5">
+              <a href="{% url 'auth_posts' %}" target="_blank">/api/auth/posts</a> <br> <br>
+              <a href="{% url 'auth_comments' %}" target="_blank">/api/auth/comments</a> <br> <br>
+              <a href="{% url 'users' %}" target="_blank">/api/auth/users</a> <br> <br>
+            </div>
+            <div class="col-md-3 col-7">
+              100 Posts <br> <br>
+              500 Comments <br><br>
+              10 Users <br><br>
+            </div>
+          </div>
+          <br><hr><br>
+          <h3>Routes</h3>
+          <p>Following resources are available which you can access via our REST API.</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-2 col-md-1" >
+                GET <br> <br>
+                GET <br> <br>
+                GET <br> <br>
+                POST <br> <br>
+                PUT <br> <br>
+                PATCH <br> <br>
+                DELETE <br> <br>
+              </div>
+              <div class="col-6 col-md-3" >
+                <a href="{% url 'auth_posts' %}" target="_blank">/api/auth/posts</a> <br> <br>
+                <a href="{% url 'auth_comments' %}" target="_blank">/api/auth/comments</a> <br> <br>
+                <a href="{% url 'auth_post-id' 1 %}" target="_blank">/api/auth/posts/1</a> <br> <br>
+                <a href="{% url 'auth_posts' %}" target="_blank">/api/auth/posts</a> <br> <br>
+                <a href="{% url 'auth_post-id' 1 %}" target="_blank">/api/auth/posts/1</a> <br> <br>
+                <a href="{% url 'auth_post-id' 1 %}" target="_blank">/api/auth/posts/1</a> <br> <br>
+                <a href="{% url 'auth_post-id' 1 %}" target="_blank">/api/auth/posts/1</a> <br> <br>
+              </div>
+              <div class="col-4 col-md-4">
+                Get all posts <br> <br>
+                Get all comments <br><br>
+                Get a single post <br> <br>
+                Add a post <br> <br>
+                Update all field at once<br> <br>
+                Update some fields<br> <br>
+                Delete a post <br> <br>
+              </div>
+            </div>
+          </div>
+
+          <br><hr><br><br>
+          {{url}}
+          <h3>All Links</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <a href="#postsrelated" style="text-decoration: none;color: black;"><h4>Post related</h4></a>
+              <a href="#getallpost">Get all post</a> <br> <br>
+              <a href="#getsinglepost">Get a single post</a> <br> <br>
+                <a href="#getlimitedpost">Get limited posts</a> <br> <br>
+              <a href="#addpost">Add a post</a> <br> <br>
+              <a href="#updatepostput">Update a post all fields</a> <br> <br>
+              <a href="#updatepostpatch">Update specific fields</a> <br> <br>
+              <a href="#deletepost">Delete a post</a> <br> <br>
+            </div>
+            <div class="col-md-4">
+              <a href="#commentsrelated" style="text-decoration: none;color: black;"><h4>Comments related</h4></a>
+              <a href="#getallcomments">Get all comments</a> <br> <br>
+              <a href="#getsinglecomment">Get single comment</a> <br> <br>
+              <a href="#addcomment">Add comment</a> <br> <br>
+              <a href="#updatecommentput">Update comment all field</a> <br> <br>
+              <a href="#updatecommentpatch">Update specific fields</a> <br> <br>
+              <a href="#deletecomment">Delete a comment</a> <br> <br>
+            </div>
+          </div>
+          <br> <hr><br>
+          <br><br>
           <h3>Fetch data</h3>
           <pre style="border-radius: 10px;" id="javascript" ><code>
-fetch('{{url}}api/posts/1')
+fetch('{{url}}api/auth/posts/1', {
+  method : 'get',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [access token]'
+  }
+})
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -189,95 +359,19 @@ fetch('{{url}}api/posts/1')
 }</code></pre>
       <br>
 
-
-          <br><br><hr> <br>
-          <h3>Resources</h3>
-          <p>Following resources are available which you can access via our REST API.</p>
-          <div class="row" style="align-items: start">
-            <div class="col-md-2 col-4">
-              <a href="{% url 'posts' %}" target="_blank">/api/posts</a> <br> <br>
-              <a href="{% url 'comments' %}" target="_blank">/api/comments</a> <br> <br>
-              <a href="{% url 'users' %}" target="_blank">/api/users</a> <br> <br>
-            </div>
-            <div class="col-md-3 col-8">
-              100 Posts <br> <br>
-              500 Comments <br><br>
-              10 Users <br><br>
-            </div>
-          </div>
-          <br><hr><br>
-          <h3>Routes</h3>
-          <p>Following resources are available which you can access via our REST API.</p>
-          <div class="container">
-            <div class="row">
-              <div class="col-2 col-md-1" >
-                GET <br> <br>
-                GET <br> <br>
-                GET <br> <br>
-                GET <br> <br>
-                POST <br> <br>
-                PUT <br> <br>
-                PATCH <br> <br>
-                DELETE <br> <br>
-              </div>
-              <div class="col-5 col-md-2" >
-                <a href="{% url 'posts' %}" target="_blank">/api/posts</a> <br> <br>
-                <a href="{% url 'comments' %}" target="_blank">/api/comments</a> <br> <br>
-                <a href="{% url 'users' %}" target="_blank">/api/users</a> <br> <br>
-                <a href="{% url 'post-id' 1 %}" target="_blank">/api/posts/1</a> <br> <br>
-                <a href="{% url 'posts' %}" target="_blank">/api/posts</a> <br> <br>
-                <a href="{% url 'post-id' 1 %}" target="_blank">/api/posts/1</a> <br> <br>
-                <a href="{% url 'post-id' 1 %}" target="_blank">/api/posts/1</a> <br> <br>
-                <a href="{% url 'post-id' 1 %}" target="_blank">/api/posts/1</a> <br> <br>
-              </div>
-              <div class="col-5 col-md-4">
-                Get all posts <br> <br>
-                Get all comments <br><br>
-                Get all users <br><br>
-                Get a single post <br> <br>
-                Add a post <br> <br>
-                Update all field at once<br> <br>
-                Update some fields<br> <br>
-                Delete a post <br> <br>
-              </div>
-            </div>
-          </div>
-
-          <br><hr><br><br>
-          {{url}}
-          <h3>All Links</h3>
-          <div class="row">
-            <div class="col-md-4">
-              <a href="#postsrelated" style="text-decoration: none;color: black;"><h4>Post related</h4></a>
-              <a href="#getallpost">Get all post</a> <br> <br>
-              <a href="#getsinglepost">Get a single post</a> <br> <br>
-                <a href="#getlimitedpost">Get limited posts</a> <br> <br>
-              <a href="#addpost">Add a post</a> <br> <br>
-              <a href="#updatepostput">Update a post all fields</a> <br> <br>
-              <a href="#updatepostpatch">Update specific fields</a> <br> <br>
-              <a href="#deletepost">Delete a post</a> <br> <br>
-            </div>
-            <div class="col-md-4">
-              <a href="#commentsrelated" style="text-decoration: none;color: black;"><h4>Comments related</h4></a>
-              <a href="#getallcomments">Get all comments</a> <br> <br>
-              <a href="#getsinglecomment">Get single comment</a> <br> <br>
-              <a href="#addcomment">Add comment</a> <br> <br>
-              <a href="#updatecommentput">Update comment all field</a> <br> <br>
-              <a href="#updatecommentpatch">Update specific fields</a> <br> <br>
-              <a href="#deletecomment">Delete a comment</a> <br> <br>
-            </div>
-            <div class="col-md-4">
-              <a href="#usersrelated" style="text-decoration: none; color: black;"><h4>Users related</h4></a>
-              <a href="#getallusers">Get all users</a> <br> <br>
-              <a href="#getsingleuser">Get single user</a> <br> <br>
-            </div>
-          </div>
-          <br> <hr><br>
+          
           <h3 id="postsrelated">Post related</h3>
           <h4 id="getallpost">Get all post</h4>
           Get all post along with 5 comments each and user details.
           <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/posts')
+fetch('{{url}}api/auth/posts', {  
+  method : 'get',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
+  }
+})
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -320,7 +414,14 @@ fetch('{{url}}api/posts')
          <h4 id="getsinglepost">Get single post</h4>
          Get a single post along with comments and user detail.
          <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/posts/2')
+fetch('{{url}}api/auth/posts/2', {  
+  method : 'get',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
+  }
+})
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -355,10 +456,17 @@ fetch('{{url}}api/posts/2')
 
             <h4 id="getlimitedpost">Get limited posts</h4>
             Get limited post by mentioning query string limit and offset in the url. <br>
-            Example: {{url}}api/posts<strong>?limit=10&offset=20</strong>. <br>
+            Example: {{url}}api/auth/posts<strong>?limit=10&offset=20</strong>. <br>
             You will get 10 records starting from 21 to 30
             <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/posts?limit=10&offset=20')
+fetch('{{url}}api/authposts?limit=10&offset=20', {
+  method : 'get',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
+  }
+})
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -399,8 +507,10 @@ fetch('{{url}}api/posts?limit=10&offset=20')
             <pre style="border-radius: 10px;"><code>
 let init = {
   method : "post",
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
   },
   body : JSON.stringify({
     title : "What is CSS",
@@ -409,7 +519,7 @@ let init = {
   })
 }
 
-fetch( `{{url}}api/posts`, init)
+fetch( `{{url}}api/auth/posts`, init)
 .then( (response) => {
   if (!response.ok) {
     const message = `An error has occured: ${response.status}`;
@@ -434,10 +544,12 @@ fetch( `{{url}}api/posts`, init)
             Update all fields. Pass <strong>PostId </strong>in the<strong> URL</strong>. Required fields are <strong>title</strong>, <strong>description</strong> and <strong>userId</strong>
 
             <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/posts/1', {
+fetch('{{url}}api/auth/posts/1', {
   method : "put",
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
   },
   body : JSON.stringify({
     title : "What is CSS",
@@ -469,10 +581,12 @@ fetch('{{url}}api/posts/1', {
             Update any field. Pass <strong>PostId </strong>in the<strong> URL</strong>. Required fields are <strong>title</strong>, <strong>description</strong> and <strong>userId</strong>
 
             <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/posts/1', {
+fetch('{{url}}api/auth/posts/1', {
   method : "patch",
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
   },
   body : JSON.stringify({
     description : "CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.",
@@ -501,8 +615,13 @@ fetch('{{url}}api/posts/1', {
             <h4 id="deletepost">Delete a post</h4>
             To delete a post. Pass PostId in the url and send delete request
             <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/posts/1', {
+fetch('{{url}}api/auth/posts/1', {
   method : "delete"
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
+  }
 })
 .then( (response) => {
   if (!response.ok) {
@@ -525,7 +644,7 @@ fetch('{{url}}api/posts/1', {
 <h4 id="getallcomments">Get all comments</h4>
 Get all comments along with name and email
 <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/comments/1')
+fetch('{{url}}api/auth/comments/1')
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -555,7 +674,14 @@ fetch('{{url}}api/comments/1')
 <h4 id="getsinglecomment">Get single comment</h4>
 Get a single comment. Pass commentId in the url.
 <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/comments/1')
+fetch('{{url}}api/auth/comments/1', {
+  method : 'get',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
+  }
+})
 .then(res => res.json())
 .then(data => console.log(data));
 
@@ -571,10 +697,12 @@ Output
   <h4 id="addcomment">POST request to add comment or Add Comment</h4>
   Add comment. Required fields are <strong>comment</strong>, <strong>name</strong>, <strong>email</strong> and <strong>postId</strong>.
   <pre style="border-radius: 10px;"><code>
-fetch( `{{url}}api/comments`, {
+fetch( `{{url}}api/auth/comments`, {
   method : "post",
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
   },
   body : JSON.stringify({
     name : "Pankaj Kumar",
@@ -608,10 +736,12 @@ fetch( `{{url}}api/comments`, {
   Update all fields of comment. Pass commentId in the URL. Required fields are <strong>comment</strong>, <strong>name</strong>, <strong>email</strong> and <strong>postId</strong>.
 
   <pre style="border-radius: 10px;"><code>
-fetch( `{{url}}api/comments/4`, {
+fetch( `{{url}}api/auth/comments/4`, {
   method : "put",
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
   },
   body : JSON.stringify({
     name : "Pankaj Kumar",
@@ -643,10 +773,12 @@ fetch( `{{url}}api/comments/4`, {
   <h4 id="updatecommentpatch">Update a specific field</h4>
   Update specific fields of comment. Pass commentId in the url.
   <pre style="border-radius: 10px;"><code>
-fetch( `{{url}}api/comments/4`, {
+fetch( `{{url}}api/auth/comments/4`, {
   method : "patch",
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
   },
   body : JSON.stringify({
     comment : "Very nice post",
@@ -674,8 +806,13 @@ fetch( `{{url}}api/comments/4`, {
   <h4 id="deletecomment">Delete a comment</h4>
   To delete a comment. Pass commentId in the URL and delete request.
   <pre style="border-radius: 10px;"><code>
-fetch( `{{url}}api/comments/4`, {
-  method : "delete"
+fetch( `{{url}}api/auth/comments/4`, {
+  method : "delete",
+  headers : {
+    'Content-type' : 'application/json',
+    'Accept' : 'application/json; indent=4', 
+    'Authorization' : 'Bearer [your_access_token]'
+  }
 })
 .then( (response) => {
   if (!response.ok) {
@@ -692,116 +829,23 @@ fetch( `{{url}}api/comments/4`, {
     <pre style="border-radius: 10px;"><code>{
   "message":"Data Deleted.!!",
   "commentId":4
-}</code></pre>  <hr> <br>
-
-
-          <h3 id="usersrelated">Users related </h3>
-          <h4 id="getallusers">Get all users</h4>
-          Get all users you will get userId, username, all posts.
-          <pre style="border-radius: 10px;"><code>
-fetch( `{{url}}api/users`)
-.then( (response) => {
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    console.log(message);
-    throw new Error(message);
-  }
-    return response.json();
-})
-.then(data => console.log(data));
-
-</code></pre>Output
-<pre style="border-radius: 10px;"><code>[
-  {
-    "userId": 1,
-    "username": "admin",
-    "posts": [
-                {
-                  "postId": 1,
-                  "title": "they are either to do repels provide blacked out option to blame",
-                  "description": "because it also receives\nit takes..",
-                  "userId": 1
-                },
-                {
-                    "postId": 2,
-                    "title": "who is to be",
-                    "description": "it is the time of life\nto follow them,..",
-                    "userId": 1
-                },
-                  .
-                  . // 10 posts by admin user
-              ]
-  },
-  {
-    "userId": 2,
-    "username": "user2",
-    "posts": [
-                {
-                  "postId": 11,
-                  "title": "they are either to do repels provide blacked out option to blame",
-                  "description": "because it also receives\nit takes the con...",
-                  "userId": 1
-                },
-                {
-                  "postId": 12,
-                  "title": "who is to be",
-                  "description": "it is the time of life\nto follow them, ...",
-                  "userId": 1
-                },
-                  .
-                  . // 10 posts by user2
-              ]
-  },
-  {...},
-  {...},
-  .
-  .
-  {...} // 10th user
-]</code></pre><hr> <br>
-
-          <h4 id="getsingleuser">Get single user</h4>
-          Get a single user detail and all post related to that user.
-          <pre style="border-radius: 10px;"><code>
-fetch('{{url}}api/users/1')
-.then(res => res.json())
-.then(data => console.log(data));
-
-</code></pre>
-Output
-<pre style="border-radius: 10px;"><code>{
-"user": [ { "id": 2, "username": "user1" } ],
-"post": [
-          {
-            "postId": 11, "title": "and indeed those who praise", "description": "the choice of rejecting the dark...", "userId": 2
-          },
-          {
-            "postId": 12, "title": "in some times he hates the pain", "description": "therefore it is either great...", "userId": 2
-          },
-          {...},
-          .
-          .
-          {...} // 10 posts by user1 with userId 2
-        ]
-}</code></pre> <br> <hr> <br>
+}</code></pre>  <hr> <br><br>
 
 
 
-        </div>
+         </div>
       </div>
     </div>
   </div>
+
+
   <script>
-
-    const copyButtonLabel = "Copy";
-    // use a class selector if available
     let blocks = document.querySelectorAll("pre");
-
     blocks.forEach((block) => {
-      // only add button if browser supports Clipboard API
       if (navigator.clipboard) {
         let button = document.createElement("button");
         button.setAttribute("class", "copy-btn");
-        button.innerText = copyButtonLabel;
+        button.innerText = "Copy";
         block.appendChild(button);
         block.setAttribute("tabindex", 0);
         button.addEventListener("click", async () => {
@@ -813,15 +857,13 @@ Output
     async function copyCode(block, button) {
       let code = block.querySelector("code");
       let text = code.innerText;
-
       await navigator.clipboard.writeText(text);
-
-      // visual feedback that task is completed
       button.innerText = "Copied";
 
       setTimeout(() => {
         button.innerText = copyButtonLabel;
       }, 1000);
     }
+
   </script>
- {% endblock %}
+{% endblock content %}

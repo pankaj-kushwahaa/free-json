@@ -5,6 +5,7 @@
   text-align: center;
   position: sticky;
   top: 0px;
+  z-index: 3;
 }
 
 .header h3, h3>a {

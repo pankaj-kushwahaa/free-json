@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %}
+{% block title  %} Post {% endblock title %}
+{% block content %}
+<br>
+<div class="row">
+  <h3 class="text-center">Profile</h3>
+  {% include 'myapp/profile-header.html' %}
+  <div class="col-md-5"> 
+    <br>
+    <br>
+    {% if user %}
+    <table class="table">
+      <tbody>
+        <tr>
+          <th> Username </th>
+          <td>{{user.username}}</td>
+        </tr>
+        <tr>
+          <th> Email Id </th>
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+    </table>  
+    {% endif %}
+  </div>
+
+</div>  
+<br>
+<br>
+{% endblock content %}

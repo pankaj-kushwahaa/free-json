@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+{% block title  %}Login {% endblock title %}
+{% block content %}
+<div class="row">
+  <div class="col-md-4 col-sm-8 offset-md-4">
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="text-center">Login</h3>
+        <form action="" method="post" novalidate>
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+          <p class="alert alert-danger">{{error}}</p>
+          {% endfor %}
+          {% endif %}
+          {% if form %}
+            {% for field in form %} 
+              {{field.label_tag}} {{field}}
+              {% if field.errors %}
+                {% for error in field.errors %}
+                  <small style="color:red">{{error}}</small>
+                {% endfor %}
+              {% endif %}
+              <br>
+            {% endfor %}
+          {% endif %}
+          <input type="submit" value="Login" class="btn btn-success">
+          <br> <br>
+        </form>
+          <a href="{% url 'register' %}" class="btn btn-primary">Create an account </a>
+          <a href="{% url 'password-reset' %}" style="margin-left: auto; float: right;" class="btn btn-danger">Forgot password ?</a>
+      </div>
+    </div>
+  </div>
+</div>    
+<br>
+<br> 
+{% endblock content %}
