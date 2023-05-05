@@ -21,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -156,7 +157,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PORT = 25
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your_gmail_id'
-EMAIL_HOST_PASSWORD = 'your_password'
+EMAIL_HOST_PASSWORD = 'your_gmail_password'
 EMAIL_PORT = 587
 
 PASSWORD_RESET_TIMEOUT = 14400
