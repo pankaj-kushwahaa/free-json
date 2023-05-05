@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .forms import RegisterationForm, LoginForm, ProfileChangeForm, User
 
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, login
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -12,48 +12,15 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.views.generic.edit import FormView
-from django.views import View
-from django.contrib.auth import login
-from .forms import RegisterationForm, LoginForm, ProfileChangeForm
 from django.urls import reverse_lazy
-import re
-
 from .token import account_activation_token
-
-from pprint import pprint
-from faker import Faker
-from myapp.models import Comment
 
 
   
 class Home(View):
   def get(self, request):
-    # url = 'https://jsonplaceholder.typicode.com/comments'
-    # res = requests.get(url)
-    # data = json.loads(res.text)
-    # pprint(data)
-    # Create User
-    fk = Faker()
-    # for i in range(1, 501):
-    #   user = User.objects.create_user(f"user{i}", password= "Dera@123")
-    #   user.save()
-    # translator = Translator()
-    # for i in data:
-    #   user = User.objects.get(id=i.get('userId'))
-    #   title = translator.translate(i.get('title')).text
-    #   desc = translator.translate(i.get('body')).text
-    #   Blog.objects.create(title=title, description=desc, userId=user)
-      # name = fk.name()
-      # email = fk.email()
-      # print(i, fk.text(), '\n')
-      # commentId = Comment.objects.get(commentId=i)
-      # commentId.comment = fk.text()
-      # commentId.name = name
-      # commentId.email = email
-      # commentId.save()
     return render(request, 'myapp/home.html')
   
 class Docs(View):
