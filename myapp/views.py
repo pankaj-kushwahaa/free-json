@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import RegisterationForm, LoginForm, ProfileChangeForm, User
+from .forms import RegisterationForm, LoginForm, ProfileChangeForm, User, ChangePasswordForm
+from django.contrib.auth import update_session_auth_hash
 
 from django.contrib.auth import get_user_model, login
 from django.template.loader import render_to_string
@@ -16,18 +17,26 @@ from django.contrib.auth.views import LoginView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from .token import account_activation_token
-
-
   
 class Home(View):
   def get(self, request):
-    return render(request, 'myapp/home.html')
+    data = dict(url=request.build_absolute_uri("/"))
+    return render(request, 'myapp/home.html', data)
   
 class Docs(View):
   def get(self, request):
     data = dict(url=request.build_absolute_uri("/"))
     return render(request, 'myapp/docs.html', data)
   
+class JWTDocs(View):
+  def get(self, request):
+    data = dict(url=request.build_absolute_uri("/"))
+    return render(request, 'myapp/jwtdocs.html', data)
+  
+def error_404_view(request, exception):
+  return render(request, 'myapp/error.html')
+
+
 def activateEmail(request, user, to_email):
   mail_subject = 'Activate your user account.'
   message = render_to_string('myapp/activate_account.html', {
@@ -47,21 +56,6 @@ def activateEmail(request, user, to_email):
   except:
     messages.error(request, "Something went wront or Email id not valid.")
 
-def register(request):
-    if request.method == "POST":
-        form = RegisterationForm(request.POST)
-        if form.is_valid():
-          user = form.save(commit=False)
-          user.is_active = False
-          user.save()
-          activateEmail(request, user, form.cleaned_data.get('email'))
-          return redirect('login')
-        else:
-          return render(request=request, template_name="myapp/register.html", context={"form": form})
-    else:
-      form = RegisterationForm()
-    return render(request=request, template_name="myapp/register.html", context={"form": form})
-
 def activate(request, uidb64, token):
   User = get_user_model()
   try:
@@ -77,6 +71,21 @@ def activate(request, uidb64, token):
   else:
     messages.error(request, 'Activation link is invalid!')
   return redirect('login')
+
+def register(request):
+    if request.method == "POST":
+        form = RegisterationForm(request.POST)
+        if form.is_valid():
+          user = form.save(commit=False)
+          user.is_active = False
+          user.save()
+          activateEmail(request, user, form.cleaned_data.get('email'))
+          return redirect('login')
+        else:
+          return render(request=request, template_name="myapp/register.html", context={"form": form})
+    else:
+      form = RegisterationForm()
+    return render(request=request, template_name="myapp/register.html", context={"form": form})
 
 
 class MyLoginView(LoginView):
@@ -100,10 +109,9 @@ class RegisterView(FormView):
     
     return super(RegisterView, self).form_valid(form)
 
+
 @method_decorator(login_required, name='dispatch')  
 class ProfileView(View):
-  # def get(self, request):
-  #   return render(request, 'myapp/profile.html')  
   def get(self, request):
     user = User.objects.get(id=request.user.id)
     return render(request, 'myapp/profile.html', dict(user=user))
@@ -133,10 +141,19 @@ class EditProfileView(View):
     else:
       return render(request, 'myapp/edit-profile.html', dict(form=form))
     
-class JWTDocs(View):
+@method_decorator(login_required, name='dispatch')
+class ChangePasswordView(FormView):
   def get(self, request):
-    data = dict(url=request.build_absolute_uri("/"))
-    return render(request, 'myapp/jwtdocs.html', data)
+    form = ChangePasswordForm(request.user)
+    return render(request=request, template_name="myapp/change_password.html", context={"form": form})
   
-def error_404_view(request, exception):
-  return render(request, 'myapp/error.html')
+  def post(self, request):
+    form = ChangePasswordForm(request.user, request.POST)
+    if form.is_valid():
+      user = form.save()
+      update_session_auth_hash(request, user)  # Important!
+      messages.success(request, "Password Changed Successfully")
+      return redirect('profile')
+    else:
+      messages.error(request, "Please correct the error below.")
+      return render(request, 'myapp/change_password.html', dict(form=form))

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, SetPasswordForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, SetPasswordForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordResetForm
 from django.utils.translation import gettext_lazy as _
@@ -49,3 +49,13 @@ class EmailValidationOnForgotPassword(PasswordResetForm):
 class ReSetPasswordForm(SetPasswordForm):
   new_password1 = forms.CharField(label=_("New password"), widget=forms.PasswordInput(attrs={"autocomplete": "new-password", "class":"form-control"}), strip=False)
   new_password2 = forms.CharField(label=_("New password confirmation"), strip=False, widget=forms.PasswordInput(attrs={"autocomplete": "new-password", "class":"form-control"}))
+
+
+class ChangePasswordForm(PasswordChangeForm):
+  old_password = forms.CharField(label=_("Old password"),  strip=False, widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "autofocus": True, "class":"form-control"}))
+
+  new_password1 = forms.CharField(label=_("New password"),  strip=False, widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "autofocus": True, "class":"form-control"}))
+
+  new_password2 = forms.CharField(label=_("Confirm new password"),  strip=False, widget=forms.PasswordInput(attrs={"autocomplete": "current-password", "autofocus": True, "class":"form-control"}))
+
+  field_order = ["old_password", "new_password1", "new_password2"]

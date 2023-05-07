@@ -20,7 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!-=qcf5&%ci4hak^$kn7=2mt)5o*ru@6cp-a)b&dixq+b-734a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -157,7 +156,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PORT = 25
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your_gmail_id'
-EMAIL_HOST_PASSWORD = 'your_gmail_password'
+EMAIL_HOST_PASSWORD = 'your_email_app_password'
 EMAIL_PORT = 587
 
 PASSWORD_RESET_TIMEOUT = 14400

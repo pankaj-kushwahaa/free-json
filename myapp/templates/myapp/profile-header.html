@@ -7,11 +7,12 @@
     color: white;
   }
 </style>
-{% url 'profile' as profile %}{% url 'edit_profile' as edit_profile %}{% url 'jwt_docs' as jwt_docs %}
+{% url 'profile' as profile %}{% url 'edit_profile' as edit_profile %}{% url 'jwt_docs' as jwt_docs %}{% url 'change_password' as change_password %}
 <div class="col-md-3 col-sm-3 offset-md-1">
   <ul class="list-group">
     <a href="{% url 'profile' %}" class="list-group-item list-group-item-action {% if request.path == profile  %} activate {% endif %}"> Profile </a>
     <a href="{% url 'edit_profile' %}" class="list-group-item list-group-item-action {% if request.path == edit_profile  %} activate {% endif %}">Edit Profile</a>
+    <a href="{% url 'change_password' %}" class="list-group-item list-group-item-action {% if request.path == change_password  %} activate {% endif %}">Change Password</a>
     <a href="{% url 'jwt_docs' %}" class="list-group-item list-group-item-action {% if request.path == jwt_docs  %} activate {% endif %}"> JWT Documentation </a>
   </ul> 
 </div>
